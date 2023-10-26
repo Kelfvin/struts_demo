@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN" "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+
+    <constant name="struts.devMode" value="true" />
+
+    <!-- 动态传参 -->
+    <package name="dynamic_method" namespace="/dynamic_method" extends="struts-default">
+
+        <action name="execute" class="com.actions.LoginAction">
+            <result name="success">/dynamic_method/welcome.jsp</result>
+            <result name="error">/dynamic_method/faild.jsp</result>
+        </action>
+
+        <action name="user" class="com.actions.LoginAction" method="user">
+            <result name="success">/dynamic_method/user_success.jsp</result>
+            <result name="error">/dynamic_method/faild.jsp</result>
+        </action>
+        <action name="admin" class="com.actions.LoginAction" method="admin">
+            <result name="success">/dynamic_method/admin_success.jsp</result>
+            <result name="error">/dynamic_method/faild.jsp</result>
+        </action>
+    </package>
+
+
+    <!-- 参数传递 -->
+    <package name="paramTest" namespace="/paramTest" extends="struts-default">
+        <action name="domainDriven" class="com.actions.StudentDomainAction">
+            <result name="success">/param/domain_driven/success.jsp</result>
+        </action>
+
+        <action name="modelDriven" class="com.actions.StudentModelAction">
+            <result name="success">/param/model_driven/success.jsp</result>
+        </action>
+    </package>
+
+    <!-- 值栈 -->
+    <package name="valuestack" namespace="/valuestack" extends="struts-default">
+        <action name="show" class="com.actions.ShowValueStackAction">
+            <result name="success">/value_stack/success.jsp</result>
+        </action>
+    </package>
+
+    <package name="default" namespace="/" extends="struts-default">
+        <action name="servletAPI" class="com.actions.ServletAPIAction">
+            <result name="success">servletAPI/success.jsp</result>
+        </action>
+    </package>
+
+    <!-- 上传文件 -->
+    <package name="upload" namespace="/upload" extends="struts-default">
+        <action name="uploadFile" class="com.actions.UploadAction">
+            <result name="success">/upload/success.jsp</result>
+            <result name="error">/upload/error.jsp</result>
+        </action>
+    </package>
+
+    <!-- 类型转换 -->
+    <package name="typeConversion" namespace="/typeConversion" extends="struts-default">
+        <action name="typeConversion" class="com.actions.typeConversion.TypeConversionAction">
+            <result name="success">/type_conversion/success.jsp</result>
+            <result name="input">/type_conversion/</result>
+        </action>
+    </package>
+</struts>

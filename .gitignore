@@ -1,0 +1,35 @@
+# 忽略编译后的class文件
+*.class
+
+# 忽略Eclipse项目文件
+.project
+.classpath
+.settings/
+
+# 忽略IntelliJ IDEA项目文件
+.idea/
+*.iml
+*.iws
+
+# 忽略Maven构建目录
+target/
+
+# 忽略日志文件
+log/
+*.log
+
+# 忽略临时文件
+temp/
+*.tmp
+
+# 忽略系统文件
+.DS_Store
+Thumbs.db
+
+# 忽略maven的target目录
+target/
+
+# 忽略编辑器配置
+.vscode
+.idea
+

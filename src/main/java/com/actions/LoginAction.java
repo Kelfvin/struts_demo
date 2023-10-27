@@ -25,9 +25,10 @@ public class LoginAction extends ActionSupport {
     // 重写 execute() 方法
     @Override
     public String execute() throws Exception {
+        // 普通方法登录，用户名和密码一样就可以
         System.out.println(username);
         System.out.println(password);
-        if (this.username.equals("kelf") && this.password.equals("kelf")) {
+        if (this.username.equals(this.password)) {
             return SUCCESS;
         } else {
             return ERROR;
@@ -48,6 +49,15 @@ public class LoginAction extends ActionSupport {
         System.out.println(username);
         System.out.println(password);
         if (this.username.equals("admin") && this.password.equals("admin")) {
+            return SUCCESS;
+        } else {
+            return ERROR;
+        }
+    }
+
+    public String login() throws Exception {
+        System.out.println("使用login方法");
+        if (this.username.equals(this.password)) {
             return SUCCESS;
         } else {
             return ERROR;

@@ -4,26 +4,35 @@
 <struts>
 
     <constant name="struts.devMode" value="true" />
+    <!-- 启动动态传参 -->
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" />
 
     <!-- 动态传参 -->
-    <package name="dynamic_method" namespace="/dynamic_method" extends="struts-default">
+    <package name="dynamic_method" namespace="/dynamic_method" extends="struts-default"
+        strict-method-invocation="false">
         <action name="execute" class="com.actions.LoginAction">
             <result name="success">/dynamic_method/welcome.jsp</result>
             <result name="error">/dynamic_method/faild.jsp</result>
         </action>
 
         <action name="user" class="com.actions.LoginAction" method="user">
-            <result name="success">/dynamic_method/user_success.jsp</result>
+            <result name="success">/dynamic_method/welcome.jsp</result>
             <result name="error">/dynamic_method/faild.jsp</result>
         </action>
         <action name="admin" class="com.actions.LoginAction" method="admin">
-            <result name="success">/dynamic_method/admin_success.jsp</result>
+            <result name="success">/dynamic_method/welcome.jsp</result>
             <result name="error">/dynamic_method/faild.jsp</result>
         </action>
 
-        <action name="login.*" class="com.actions.LoginAction" method="{1}"></action>
+        <action name="login-*" class="com.actions.LoginAction" method="{1}">
+            <result name="success">/dynamic_method/welcome.jsp</result>
+            <result name="error">/dynamic_method/faild.jsp</result>
+        </action>
 
-        <action name="login" class="com.actions.LoginAction"></action>
+        <action name="login" class="com.actions.LoginAction">
+            <result name="success">/dynamic_method/welcome.jsp</result>
+            <result name="error">/dynamic_method/faild.jsp</result>
+        </action>
     </package>
 
 
@@ -35,6 +44,10 @@
 
         <action name="modelDriven" class="com.actions.StudentModelAction">
             <result name="success">/param/model_driven/success.jsp</result>
+        </action>
+
+        <action name="propertyDriven" class="com.actions.StudentPropertyAction">
+            <result name="success">/param/property_driven/success.jsp</result>
         </action>
     </package>
 

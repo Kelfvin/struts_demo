@@ -7,9 +7,9 @@
 <h2>类型转换结果页面</h2>
 
 
-
+<s:property value = "date" /><br>
 ${date}<br>
-<s:property value="date"/><br>
+
 
 </body>
 </html>

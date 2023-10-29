@@ -1,6 +1,6 @@
 package com.actions.typeConversion;
 
-import java.sql.Date;
+import java.util.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Map;
@@ -16,6 +16,7 @@ public class dateConverter extends StrutsTypeConverter {
             new SimpleDateFormat("yyyy.MM.dd"),
             new SimpleDateFormat("yyyy年MM月dd日"),
             new SimpleDateFormat("yyyy*MM*dd"),
+            new SimpleDateFormat("yyyy,MM,dd"),
     };
 
     @Override
@@ -34,8 +35,9 @@ public class dateConverter extends StrutsTypeConverter {
 
     @Override
     public String convertToString(Map context, Object o) {
+        System.out.println("开始转换");
         if (o instanceof Date) {
-            return new SimpleDateFormat("yyyy-MM-dd").format((Date) o);
+            return new SimpleDateFormat("yyyy年MM月dd").format((Date) o);
         }
         return null;
     }

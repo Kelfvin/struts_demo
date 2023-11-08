@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.2//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+<validators>
+    <field name="username">
+
+        <field-validator type="stringlength">
+            <param name="minLength">2</param>
+            <param name="maxLength">20</param>
+            <message>用户名长度应在2到18个字符间</message>
+        </field-validator>
+
+        <field-validator type="regex">
+            <param name="regex">
+                <![CDATA[^user]]>
+            </param>
+            <message>用户名必须以user开头</message>
+        </field-validator>
+
+    </field>
+
+
+</validators>

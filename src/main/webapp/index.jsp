@@ -95,6 +95,11 @@
     </div>
     <div class="section">
         <h3>数据校验</h3>
+        <ul>
+            <li>
+                <a href="/struts_demo/validate/">数据校验</a>
+            </li>
+        </ul>
     </div>
     <div class="section">
         <h3>数据上传</h3>

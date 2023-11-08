@@ -7,6 +7,8 @@
     <!-- 启动动态传参 -->
     <constant name="struts.enable.DynamicMethodInvocation" value="true" />
 
+    <constant name="struts.custom.i18n.resources" value="language"></constant>
+
     <!-- 动态传参 -->
     <package name="dynamic_method" namespace="/dynamic_method" extends="struts-default"
         strict-method-invocation="false">
@@ -33,6 +35,8 @@
             <result name="success">/dynamic_method/welcome.jsp</result>
             <result name="error">/dynamic_method/faild.jsp</result>
         </action>
+
+
     </package>
 
 
@@ -79,4 +83,40 @@
             <result name="input">/type_conversion/</result>
         </action>
     </package>
+
+    <!-- 登录检验 -->
+    <package name="Validate" namespace="/validate" extends="struts-default"
+        strict-method-invocation="false">
+        <action name="validateLogin" class="com.actions.ValidateLoginAction">
+            <result name="success">/validate/success.jsp</result>
+            <result name="input">/validate/</result>
+        </action>
+        <action name="validateWithXMLLogin" class="com.actions.ValidateWithXMLLoginAction">
+            <result name="success">/validate/success.jsp</result>
+            <result name="input">/validate/</result>
+            <result name="error">/validate/faild.jsp</result>
+        </action>
+
+        <action name="validateWithXMLLogin-user" class="com.actions.ValidateWithXMLLoginAction"
+            method="user">
+            <result name="success">/validate/success.jsp</result>
+            <result name="input">/validate/</result>
+            <result name="error">/validate/faild.jsp</result>
+        </action>
+
+        <action name="validateWithXMLLogin-admin" class="com.actions.ValidateWithXMLLoginAction"
+            method="admin">
+            <result name="success">/validate/success.jsp</result>
+            <result name="input">/validate/</result>
+            <result name="error">/validate/faild.jsp</result>
+        </action>
+
+
+        <action name="language">
+            <result> /validate/ </result>
+        </action>
+
+    </package>
+
+
 </struts>
